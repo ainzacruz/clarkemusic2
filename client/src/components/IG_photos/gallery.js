@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import Gallery from "react-photo-gallery";
+import Lightbox from "react-images";
 
 class IG extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      photos: []
+      photos: [],
+      currentImage: 0
     };
+
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.openLightbox = this.openLightbox.bind(this);
+    this.gotoNext = this.gotoNext.bind(this);
+    this.gotoPrevious = this.gotoPrevious.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +42,29 @@ class IG extends Component {
     return pictures;
   };
 
+  openLightbox(event, obj) {
+    this.setState({
+      currentImage: obj.index,
+      lightboxIsOpen: true
+    });
+  }
+  closeLightbox() {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false
+    });
+  }
+  gotoPrevious() {
+    this.setState({
+      currentImage: this.state.currentImage - 1
+    });
+  }
+  gotoNext() {
+    this.setState({
+      currentImage: this.state.currentImage + 1
+    });
+  }
+
   render() {
     const { photos } = this.state;
 
@@ -45,7 +75,15 @@ class IG extends Component {
         </div>
         <div className="center_wrapper">
           <div className="ig_photos">
-            <Gallery photos={photos} />
+            <Gallery photos={photos} onClick={this.openLightbox} />
+            <Lightbox
+              images={photos}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            />
           </div>
         </div>
       </div>
