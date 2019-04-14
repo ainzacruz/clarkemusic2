@@ -48,6 +48,10 @@ app.get("/ig_photos", (req, res) => {
   });
 });
 
+app.get("/express_backend", (req, res) => {
+  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
+});
+
 // start express server at 3000 port
 app.listen(3001, () => {
   console.log("Server listening on port: ", 3001);
