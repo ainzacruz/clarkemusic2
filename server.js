@@ -52,7 +52,7 @@ app.get("/express_backend", (req, res) => {
   res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
 });
 
-// start express server at 3000 port
+// start express server at 3001 port
 app.listen(3001, () => {
   console.log("Server listening on port: ", 3001);
 });
