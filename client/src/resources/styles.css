@@ -295,7 +295,7 @@ footer .icons .a {
 }
 
 /*====================
-        Events
+        photos
 ======================*/
 
 .photo_heading {
@@ -304,4 +304,8 @@ footer .icons .a {
   text-transform: uppercase;
   font-size: 52px;
   padding-top: 0.83em;
+}
+
+.ig_photos {
+  padding-bottom: 60px;
 }

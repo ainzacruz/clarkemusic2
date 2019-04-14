@@ -3,7 +3,7 @@ const app = express();
 const fetch = require("node-fetch");
 const redis = require("redis");
 require("dotenv").config();
-const api_key = process.env.REACT_APP_API_KEY;
+const api_key = process.env.IG_APP_API_KEY;
 
 // create and connect redis client to local instance.
 const client = redis.createClient();
