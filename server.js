@@ -59,6 +59,7 @@ app.get("/express_backend", (req, res) => {
 });
 
 // start express server at 3001 port
-app.listen(process.env.PORT || 3001, () => {
-  console.log("Server listening on port: ", 3001);
+var port = Number(process.env.PORT || 3001);
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
