@@ -30,11 +30,23 @@ class IG extends Component {
     const igArray = body.data.data;
     console.log(igArray);
     igArray.forEach(photo => {
-      if (photo.type === "image") {
+      if (
+        photo.type === "image" &&
+        photo.images.standard_resolution.height < 700
+      ) {
         pictures.push({
           src: photo.images.standard_resolution.url,
-          width: 10,
-          height: 10
+          width: 3,
+          height: 3
+        });
+      } else if (
+        photo.type === "image" &&
+        photo.images.standard_resolution.height > 700
+      ) {
+        pictures.push({
+          src: photo.images.standard_resolution.url,
+          width: 3,
+          height: 4
         });
       }
     });
