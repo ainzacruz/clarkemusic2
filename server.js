@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
 const redis = require("redis");
-
 require("dotenv").config();
 const api_key = process.env.IG_APP_API_KEY;
 
