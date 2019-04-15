@@ -28,12 +28,15 @@ class IG extends Component {
     const body = await response.json();
     let pictures = [];
     const igArray = body.data.data;
+    console.log(igArray);
     igArray.forEach(photo => {
-      pictures.push({
-        src: photo.images.standard_resolution.url,
-        width: 3,
-        height: 3
-      });
+      if (photo.type === "image") {
+        pictures.push({
+          src: photo.images.standard_resolution.url,
+          width: 10,
+          height: 10
+        });
+      }
     });
 
     if (response.status !== 200) {
