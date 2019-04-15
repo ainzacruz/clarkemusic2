@@ -4,11 +4,15 @@ const fetch = require("node-fetch");
 const redis = require("redis");
 require("dotenv").config();
 const api_key = process.env.IG_APP_API_KEY;
+const logfmt = require("logfmt");
+const url = require("url");
+const redisURL = url.parse(process.env.REDISCLOUD_URL);
 
 // create and connect redis client to local instance.
-const client = redis.createClient(process.env.REDISCLOUD_URL, {
+const client = redis.createClient(redisURL.port, redisURL.hostname, {
   no_ready_check: true
 });
+client.auth(redisURL.auth.split(":")[1]);
 
 // echo redis errors to the console
 client.on("error", err => {
