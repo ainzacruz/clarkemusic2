@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Adrian Inza-Cruz",
   "license": "ISC",
@@ -17,5 +18,8 @@
     "node-instagram": "^4.3.0",
     "redis": "^2.8.0",
     "request": "^2.83.0"
+  },
+  "engines": {
+    "node": "10.15.0"
   }
 }
