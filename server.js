@@ -1,15 +1,16 @@
 const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
+var url = require("url");
 const redis = require("redis");
 require("dotenv").config();
 const api_key = process.env.IG_APP_API_KEY;
-const logfmt = require("logfmt");
-const url = require("url");
-const redisURL = url.parse(process.env.REDISCLOUD_URL);
+
+const port = process.env.PORT || 5000;
 
 // create and connect redis client to local instance.
-const client = redis.createClient(redisURL.port, redisURL.hostname, {
+var redisURL = url.parse(process.env.REDISCLOUD_URL);
+var client = redis.createClient(redisURL.port, redisURL.hostname, {
   no_ready_check: true
 });
 client.auth(redisURL.auth.split(":")[1]);
@@ -54,12 +55,8 @@ app.get("/ig_photos", (req, res) => {
   });
 });
 
-app.get("/express_backend", (req, res) => {
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
-});
-
 // start express server at 3001 port
-var port = Number(process.env.PORT || 3001);
+
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
