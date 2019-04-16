@@ -3,6 +3,7 @@ const app = express();
 const fetch = require("node-fetch");
 var url = require("url");
 const redis = require("redis");
+const path = require("path");
 require("dotenv").config();
 const api_key = process.env.IG_APP_API_KEY;
 
@@ -55,7 +56,11 @@ app.get("/ig_photos", (req, res) => {
   });
 });
 
-// start express server at 3001 port
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, function() {
   console.log("Listening on " + port);
