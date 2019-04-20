@@ -88,7 +88,7 @@ class IG extends Component {
         <div className="center_wrapper">
           <h2 className="photo_heading">Follow me on InstaGram!</h2>
         </div>
-        <div className="center_wrapper">
+        <div className="ig_wrapper">
           <div className="ig_photos">
             <Gallery photos={photos} onClick={this.openLightbox} />
             <Lightbox

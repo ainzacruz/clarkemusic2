@@ -10,7 +10,7 @@ const About = () => {
           <Zoom duration={500}>
             <div className="about">
               <div className="about_title">ABOUT</div>
-              <div className="about_desc">
+              <p className="about_desc">
                 SF-based multi-instrumentalist looper, James Clarke was brought
                 up singing and performing in his local church, but it wasn't
                 until his senior year in high school that he finally started
@@ -21,7 +21,7 @@ const About = () => {
                 transitioning into a solo act in 2013. Using extensive loops,
                 layers, and catchy melodies, his live performances navigate
                 through sultry vocals and dip into the grittiness of rock.{" "}
-              </div>
+              </p>
             </div>
           </Zoom>
           <Zoom duration={500} delay={500}>
@@ -29,6 +29,7 @@ const About = () => {
               <div className="vn_outer">
                 <div className="vn_inner">
                   <YouTube
+                    className="video_player"
                     video="osWa2WrQkiE"
                     autoplay="0"
                     rel="0"

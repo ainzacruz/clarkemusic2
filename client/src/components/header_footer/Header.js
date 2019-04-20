@@ -54,9 +54,9 @@ class Header extends Component {
           padding: "2px 0px"
         }}
       >
-        <Toolbar>
+        <Toolbar className="toolbar">
           <div className="header_logo">
-            <div className="font_righteous header_logo_venue">Clarke</div>
+            <div className="font_righteous header_logo_name">Clarke</div>
           </div>
           <Button className="button" button onClick={() => this.scroll("home")}>
             Home
@@ -91,6 +91,7 @@ class Header extends Component {
           </IconButton>
 
           <SideDrawer
+            className="side_drawer"
             open={this.state.drawerOpen}
             onClose={value => this.toggleDrawer(value)}
           />
