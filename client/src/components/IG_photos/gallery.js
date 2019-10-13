@@ -28,7 +28,6 @@ class IG extends Component {
     const body = await response.json();
     let pictures = [];
     const igArray = body.data.data;
-    console.log(igArray);
     igArray.forEach(photo => {
       if (
         photo.type === "image" &&
